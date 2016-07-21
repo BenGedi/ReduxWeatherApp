@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchWeather } from '../actions/index';
 
 export default class SearchBar extends Component {
     constructor(props) {
@@ -6,19 +9,22 @@ export default class SearchBar extends Component {
 
         this.state = { term: '' };
         this.onInputChange = this.onInputChange.bind(this);
+        this.onFromSubmit = this.onFromSubmit.bind(this);
     }
 
     onInputChange(event) {
         this.setState({ term: event.target.value });
     }
 
-    onFormSubmit(event) {
+    onFromSubmit(event) {
         event.preventDefault();
+        this.props.fetchWeather(this.state.term);
+        this.setState({ term: '' });
     }
 
     render() {
         return (
-            <form onSubmit={ this.onFormSubmit } className="input-group">
+            <form onSubmit={ this.onFromSubmit } className="input-group">
                 <input
                     placeholder="Get a five-day forecast in your favorite cities"
                     className="form-control"
@@ -31,3 +37,11 @@ export default class SearchBar extends Component {
         );
     }
 }
+
+function mapDispatchToProps(dispatch) {
+    // binding fetchWeather to this props container;
+    return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+// null is use for disable redux state for this container
+export default connect (null, mapDispatchToProps)(SearchBar);
