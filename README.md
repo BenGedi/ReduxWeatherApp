@@ -1,5 +1,10 @@
 # ReduxWeatherApp
 
+###Description###
+Weather forcast application, users are able to search for a city and see it's weather forcast for the next 5 days.
+
+Using: openWeatherMap API, Google maps API.
+
 ###Getting Started###
 
 ```
