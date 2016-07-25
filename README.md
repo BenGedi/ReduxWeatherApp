@@ -17,4 +17,4 @@ Using: openWeatherMap API, Google maps API, react Sparklelines charts.
 In browser go to: http://localhost:8080/
 
 
-![alt tag](https://www.dropbox.com/s/olw766g7fzj8vg5/weatherapp.png)
+![Redux Weather App](i.imgur.com/iCcZYvZ.png)
